@@ -19,32 +19,24 @@ def yes_no(question):
             print("Please enter yes / no")
 
 
-def instructions():"""Print instructions"""
+def instructions():
+    """Print instructions"""
 
-
-("""
-*** Instructions ****`
-
-Roll the dice and try to win!
+    print("""
+    *** Instructions ****
+    Roll the dice and try to win!
     """)
 
 
 def int_check():
-
-    error = "Please enter an integer more than / equal to 13."
+    """Checks user input and returns integer value"""
 
     while True:
         try:
-            response = int(input("What is the game goal?"))
-
-            if response < 13:
-                print(error)
-            else:
-                return response
+            response = input("Please enter integer:")
 
 
-        except ValueError:
-                print(error)
+
 
 # Main routine
 
