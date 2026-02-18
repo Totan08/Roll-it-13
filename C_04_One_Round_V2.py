@@ -25,8 +25,6 @@ def make_statement(statement, decoration):
     ends = decoration * 3
     print(f"\n"
           f"{ends} {statement} {ends}")
-
-
 # Main starts here...
 
 
