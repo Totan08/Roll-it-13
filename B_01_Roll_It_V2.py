@@ -75,6 +75,8 @@ comp_score = 0
 user_score = 0
 rounds_played = 0
 
+game_history = []
+
 make_statement("Welcome to Roll It 13 Game", "🍀")
 
 # ask the user if they want instructions (check they say yes / no)
