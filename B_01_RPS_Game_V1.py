@@ -1,3 +1,5 @@
+import random
+
 # Check that user have entered a valid
 # option based on a list
 def string_checker(question, valid_ans=('yes', 'no')):
@@ -47,8 +49,8 @@ Press <xxx> to end the game at anytime.
 Good Luck!
     ''')
 
-
-# checks for an integar more than 0 (allows <enter>)
+# compare user / computer choice and returns
+# result (win / lose ./ tie)
 def int_check(question):
     while True:
         error = "Please enter an integer that is 1 or more."
@@ -72,6 +74,32 @@ def int_check(question):
 
         except ValueError:
              print(error)
+
+
+
+# compares user / computer choice and return
+# result (win / lose / tie)
+def rps_compare(user, comp):
+
+    # if the user and th computer choice is the same, it's a tie
+    if user == comp:
+        result = "tie"
+
+    # There are three ways to win
+    elif user == "paper" and comp == "rock":
+        result = "win"
+    elif user == "scissors" and comp == "paper":
+        result = "win"
+    elif user == "rock" and comp == "scissors":
+        result = "win"
+
+    # if it's not a win / tie, then it's a loss
+    else:
+        result = "lose"
+
+    return result
+
+
 
 # Main Routine Starts here
 
@@ -110,13 +138,20 @@ while rounds_played < num_rounds:
         rounds_heading = f"\n💿💿💿 Round {rounds_played + 1} of {num_rounds} 💿💿💿"
 
     print(rounds_heading)
-    print()
 
+
+
+    # get user choice
     user_choice = string_checker("Choose: ", rps_list)
     print("you chose", user_choice)
+
     # If user choice is the exit code, break the loop
     if user_choice == "xxx":
         break
+
+    result = rps_compare(user_choice, comp_choice)
+    print(f"{user_choice} vs {comp_choice}, {result}")
+
 
     rounds_played += 1
 
