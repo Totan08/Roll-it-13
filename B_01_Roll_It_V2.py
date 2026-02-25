@@ -152,9 +152,9 @@ while comp_score < game_goal and user_score < game_goal:
         player_2_roll = random.randint(1, 6)
         player_2_points += player_2_roll
 
-        print(f"{second}: Rolled a {player_1_roll} - has {player_2_points} points")
+        print(f"{second}: Rolled a {player_1_roll} - has {player_1_points} points")
 
-        print(f"{second}: {player_1_points}  | {second} {player_2_points}")
+        print(f"{first}: Rolled a {player_1_points} - has {player_1_points} points")
 
     # end of round
 
@@ -163,17 +163,17 @@ while comp_score < game_goal and user_score < game_goal:
     comp_points = player_2_points
 
     # switch the user and computer points if the went first
-    if first == "Computer":
+    if first == "Comp":
         user_points, comp_points = comp_points, user_points
 
     # work out who won and set the loser's points to zero...
-    if user_points < comp_points:
-        winner = "user"
-        loser = "computer"
+    if user_points > comp_points:
+        winner = "User"
+        loser = "Comp"
         comp_points = 0
     else:
-        winner = "computer"
-        loser = "user"
+        winner = "Comp"
+        loser = "User"
         user_points = 0
 
     round_feedback = f"The {winner} won."
@@ -194,7 +194,7 @@ while comp_score < game_goal and user_score < game_goal:
 
 # Generate round results and add it to the game history list
     game_results = (f"Round 1: {rounds_played}: User Points {user_points} | "
-                    f"Computer Points {comp_points}, {winner} wins "
+                    f"Comp Points {comp_points}, {winner} wins "
                     f"({user_score} | {comp_score})")
 
     game_history.append(game_results)
